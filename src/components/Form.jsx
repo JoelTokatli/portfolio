@@ -1,56 +1,68 @@
 import React from "react";
+import { useLang } from "../context/LanguageContext";
 
 const Form = () => {
+  const { t } = useLang();
+  const c = t.contact;
+
   return (
-    <section
-      id="contact"
-      className="lg:h-screen h-full grid items-center justify-center text-white  pt-32 pb-40 text-xs w-full bg-slate-900"
-    >
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="text-2xl pb-10 sm:text-4xl">Contact Me</h2>
+    <section id="contact" className="py-24 px-6">
+      <div className="max-w-xl mx-auto">
+        <p className="text-accent-light text-sm font-medium tracking-widest uppercase mb-3 text-center">
+          {c.subtitle}
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+          {c.title}
+        </h2>
+        <p className="text-muted text-center text-sm mb-12">{c.desc}</p>
+
         <form
           action="https://formsubmit.co/770afde25392c7b06684c5e1dead952e"
           method="POST"
-          className="flex flex-col w-80 p-3 gap-y-2 sm:min-w-[560px] bg-cyan-700 rounded"
+          className="space-y-5"
         >
-          <p className="sm:text-base">Name:</p>
-          <input
-            type="text"
-            name="name"
-            placeholder="Jhon Doe"
-            required
-            className="p-1 outline-none text-gray-700 rounded sm:p-2"
-          />
-          <p className="sm:text-base">Email:</p>
-          <input
-            type="email"
-            name="email"
-            placeholder="example@gmail.com"
-            required
-            className="p-1 outline-none text-gray-700 rounded sm:p-2"
-          />
-          <p className="sm:text-base">Message:</p>
-          <textarea
-            placeholder="Type your message here..."
-            name="comment"
-            cols="20"
-            rows="3"
-            className="resize-none p-1 outline-none text-gray-700 rounded sm:p-2"
-          ></textarea>
-          <input
+          <div>
+            <label className="text-sm text-muted block mb-2">{c.name}</label>
+            <input
+              type="text"
+              name="name"
+              placeholder={c.namePh}
+              required
+              className="w-full px-4 py-3 rounded-lg bg-dark-800 border border-white/10 text-white text-sm placeholder-white/20 outline-none focus:border-accent/50 transition-colors duration-300"
+            />
+          </div>
+          <div>
+            <label className="text-sm text-muted block mb-2">{c.email}</label>
+            <input
+              type="email"
+              name="email"
+              placeholder={c.emailPh}
+              required
+              className="w-full px-4 py-3 rounded-lg bg-dark-800 border border-white/10 text-white text-sm placeholder-white/20 outline-none focus:border-accent/50 transition-colors duration-300"
+            />
+          </div>
+          <div>
+            <label className="text-sm text-muted block mb-2">{c.message}</label>
+            <textarea
+              placeholder={c.messagePh}
+              name="comment"
+              rows="4"
+              className="w-full px-4 py-3 rounded-lg bg-dark-800 border border-white/10 text-white text-sm placeholder-white/20 outline-none focus:border-accent/50 transition-colors duration-300 resize-none"
+            ></textarea>
+          </div>
+          <button
             type="submit"
-            value="Submit message"
-            className="bg-cyan-500 w-min my-0 mx-auto p-2 sm:text-base rounded cursor-pointer hover:bg-cyan-600 transition-all active:translate-y-1"
-          />
-          <input type="hidden" name="_captcha" value="false"></input>
+            className="w-full py-3 bg-accent hover:bg-accent-dark text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
+          >
+            {c.submit}
+          </button>
+          <input type="hidden" name="_captcha" value="false" />
         </form>
       </div>
-      <footer>
-        <p className="pt-8">
-          Icons used are from:{" "}
-          <a href="https://icons8.com/" target={"_blank"} className="font-bold">
-            www.icons8.com
-          </a>
+
+      <footer className="max-w-xl mx-auto mt-16 pt-8 border-t border-white/5 text-center">
+        <p className="text-xs text-muted">
+          Joel Briceño Tokatli · {new Date().getFullYear()}
         </p>
       </footer>
     </section>

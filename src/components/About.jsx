@@ -1,55 +1,63 @@
 import React from "react";
+import { useLang } from "../context/LanguageContext";
 
 const About = () => {
+  const { t } = useLang();
+  const a = t.about;
+
   return (
-    <section
-      id="about"
-      className="lg:h-screen h-full  transition-all text-white pt-24"
-    >
-      <h2 className="lg:text-4xl sm:3xl text-2xl text-center">About Me</h2>
-      <div className="flex flex-col gap-3 text-base px-8 lg:flex-row">
-        <article className="flex flex-col lg:flex-row p-5 justify-center w-full items-center lg:justify-evenly">
-          <span className=" rounded-full shadow-lg bg-opacity-20 bg-white rotate-45">
-            <img
-              src="../src/assets/me-bikes.jpeg"
-              alt="me"
-              className="w-40 sm:w-60 rounded-full shadow-lg -rotate-45 init"
-            />
-          </span>
-          <div className="flex flex-col gap-3  text-sm sm:text-base tracking-wider items-center lg:w-4/6">
-            <div className="w-full sm:w-4/6 pt-6 lg:pt-0">
-              <h3 className="text-center text-xl font-bold">¿Who am I?</h3>
-              <p className=" text-center pt-4 text-sm sm:text-base">
-                My name is Joel Briceño Tokatli, i'm 25 years old and been
-                learning programming since late 2021. I'm a really passionate
-                and constant person about the goals i set to myself, that makes
-                me always get to complete them, no matter how hard is the task,
-                or how much time it will take me.
-              </p>
-            </div>
-            <div className="w-full sm:w-4/6">
-              <h3 className="text-center text-lg font-bold">
-                ¿Wich is my next goal?
-              </h3>
-              <p className="text-center pt-4 text-sm sm:text-base">
-                Im looking to get my first job as a web developer working with
-                javascript while keep working on my skills as a programmer and
-                mostly growing as a person, i think is one of the most important
-                things in life.
-              </p>
-            </div>
-            <div className="w-full sm:w-4/6">
-              <h3 className="text-center text-lg font-bold">
-                What i love to do:{" "}
-              </h3>
-              <p className="text-center pt-4 text-sm sm:text-base">
-                Besides programming, video games has always been a really
-                important aspect on my life, as well as sports, i love playing
-                soccer since im a small kid.
-              </p>
+    <section id="about" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <p className="text-accent-light text-sm font-medium tracking-widest uppercase mb-3 text-center">
+          {a.subtitle}
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
+          {a.title}
+        </h2>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden">
+                <img
+                  src="../src/assets/me-bikes.jpeg"
+                  alt="Joel Briceño Tokatli"
+                  className="w-full h-full object-cover object-[center_20%] scale-105"
+                />
+              </div>
+              <div className="absolute -bottom-3 -right-3 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl border border-accent/20 -z-10" />
             </div>
           </div>
-        </article>
+
+          <div className="space-y-6">
+            <p className="text-muted leading-relaxed">{a.p1}</p>
+            <p className="text-muted leading-relaxed">{a.p2}</p>
+            <div className="flex gap-6 pt-2">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent" />
+                <span className="text-sm text-white">{a.lang1}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent" />
+                <span className="text-sm text-white">{a.lang2}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+          {a.stats.map((stat, i) => (
+            <div
+              key={i}
+              className="text-center p-6 rounded-xl bg-dark-800 border border-white/5 hover:border-accent/20 transition-colors duration-300"
+            >
+              <p className="text-3xl sm:text-4xl font-bold text-accent-light mb-2">
+                {stat.value}
+              </p>
+              <p className="text-muted text-xs sm:text-sm">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

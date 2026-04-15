@@ -1,93 +1,41 @@
 import React from "react";
+import { useLang } from "../context/LanguageContext";
 
 const Skills = () => {
+  const { t } = useLang();
+  const s = t.skills;
+
   return (
-    <section
-      id="skills"
-      className="lg:h-screen h-full flex flex-col justify-center items-center text-white pt-32 pb-40 text-xs"
-    >
-      <h2 className="pb-10 lg:text-4xl sm:3xl text-2xl sm:pt-14">
-        What I Use For Programming
-      </h2>
-      <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:items-start lg:justify-evenly sm:gap-8 bg-cyan-700 px-6 w-80 sm:w-4/5 sm:min-w-[620px] lg:min-w-fit lg:max-w-3xl py-8">
-        <div className="grid grid-cols-2 gap-5 text-gray-600">
-          <h3 className="col-span-2 text-center text-white text-lg ">
-            Programming Core
-          </h3>
-          <article className="hover:translate-y-1 flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer w-24 sm:w-20 lg:w-28 text-base  transition-all">
-            <img
-              src="../src/assets/icons/html-5.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">Html</p>
-          </article>
-          <article className="hover:translate-y-1 lg:w-28 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer  sm:w-20 text-base">
-            <img
-              src="../src/assets/icons/css3.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">Css</p>
-          </article>
-          <article className="hover:translate-y-1  transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer  text-base  col-span-2">
-            <img
-              src="../src/assets/icons/javascript.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">Javascript</p>
-          </article>
-        </div>
-        <div className="grid grid-cols-2 gap-5 text-gray-600 ">
-          <h3 className="col-span-2 text-center text-white text-lg  pt-4 sm:pt-0">
-            Frameworks/Libraries
-          </h3>
-          <article className="hover:translate-y-1 lg:w-28 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer sm:w-20 text-base w-24 ">
-            <img
-              src="../src/assets/icons/react-native.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">React</p>
-          </article>
-          <article className="hover:translate-y-1 lg:w-28 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer sm:w-20 text-base ">
-            <img
-              src="../src/assets/icons/tailwind-css.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">Tailwind</p>
-          </article>
-          <article className="hover:translate-y-1 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 cursor-pointer text-base col-span-2 ">
-            <img
-              src="../src/assets/icons/leaf.png"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">LeafletJs</p>
-          </article>
-        </div>
-        <div className="grid grid-cols-2 gap-5 text-gray-600">
-          <h3 className="col-span-2 text-center text-white text-lg  pt-4 sm:pt-0">
-            Usefull Technologies
-          </h3>
-          <article className="lg:w-28 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 hover:translate-y-1 cursor-pointer sm:w-20 text-base w-24">
-            <img src="../src/assets/icons/git.svg" alt="" className="sm:w-20" />
-            <p className="">Git</p>
-          </article>
-          <article className="lg:w-28 transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 hover:translate-y-1  cursor-pointer sm:w-20 text-base">
-            <img
-              src="../src/assets/icons/github.svg"
-              alt=""
-              className="sm:w-20"
-            />
-            <p className="">Github</p>
-          </article>
-          <article className=" transition-all flex flex-col items-center bg-white p-1  rounded shadow-md hover:bg-gray-200 hover:translate-y-1 cursor-pointer text-base col-span-2">
-            <img src="../src/assets/icons/npm.svg" alt="" className="sm:w-20" />
-            <p className="">Npm</p>
-          </article>
+    <section id="skills" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-accent-light text-sm font-medium tracking-widest uppercase mb-3 text-center">
+          {s.subtitle}
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
+          {s.title}
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {s.categories.map((category, i) => (
+            <div
+              key={i}
+              className="p-6 rounded-xl bg-dark-800 border border-white/5 hover:border-accent/20 transition-all duration-300 group"
+            >
+              <h3 className="text-sm font-semibold text-accent-light uppercase tracking-wider mb-4">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="text-sm px-3 py-1.5 rounded-lg bg-dark-700 text-muted group-hover:text-white transition-colors duration-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

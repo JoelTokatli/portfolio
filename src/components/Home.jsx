@@ -1,42 +1,54 @@
 import React from "react";
-import Navbar from "./Navbar";
+import { useLang } from "../context/LanguageContext";
 
 const Home = () => {
+  const { t } = useLang();
+  const h = t.hero;
+
   return (
-    <>
-      <section className="" id="home">
-        <main className="lg:h-screen h-full pt-32 flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-evenly  sm:gap-0  text-white">
-          <div className="flex flex-col gap-1 p-4 text-center pt-4 ">
-            <h2 className="sm:text-6xl text-3xl">Welcome to my Portfolio!</h2>
-            <h3 className="text-xl sm:text-3xl">
-              I'm Joel, a Javascript{" "}
-              <b className="text-yellow-300">front-end developer </b>
-              and web designer
-            </h3>
-            <p className="text-gray-300">
-              Life is a challange, and there is no better way to face
-              challanges, than coding.
-            </p>
-            <div className="flex justify-center gap-12 pt-4">
-              <a href="#contact">
-                <input
-                  type="button"
-                  value="Contact Me"
-                  className="p-2 border-2 border-white rounded-md text-lg hover:bg-yellow-300 hover:text-black transition-all duration-500 font-bold cursor-pointer"
-                />
-              </a>
-            </div>
-          </div>
-          <span className=" rounded-lg shadow-lg border-4 border-white border-opacity-20 bg-opacity-20 translate-x-4">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
+      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/3 rounded-full blur-3xl" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center animate-fade-in">
+        <div className="mb-8">
+          <div className="w-36 h-36 mx-auto mb-8 rounded-full overflow-hidden ring-2 ring-accent/30 ring-offset-4 ring-offset-dark-900">
             <img
-              src="../src/assets/me-close-wall.jpeg "
-              alt="me"
-              className="w-40 sm:w-60 rounded-lg shadow-lg -translate-x-4 -translate-y-4 lg:pr-4 "
+              src="../src/assets/me-close-wall.jpeg"
+              alt="Joel Briceño Tokatli"
+              className="w-full h-full object-cover object-top scale-110"
             />
-          </span>
-        </main>
-      </section>
-    </>
+          </div>
+        </div>
+
+        <p className="text-accent-light text-sm font-medium tracking-widest uppercase mb-4">
+          {h.role}
+        </p>
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          Joel Briceño
+          <span className="block text-accent-light">Tokatli</span>
+        </h1>
+        <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          {h.desc}
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#contact"
+            className="px-8 py-3 bg-accent hover:bg-accent-dark text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
+          >
+            {h.cta1}
+          </a>
+          <a
+            href="#experience"
+            className="px-8 py-3 border border-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-300"
+          >
+            {h.cta2}
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
