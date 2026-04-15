@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+import spaceImg from "../assets/space.png";
+import ipImg from "../assets/Ip-Tracker.png";
+import weatherImg from "../assets/weather.png";
 
 const LanguageContext = createContext();
 
@@ -94,7 +97,7 @@ const translations = {
           title: "Space Landing Page",
           description: "Landing page dinámica con diseño responsivo y animaciones. Configura tu viaje, conoce la tripulación y explora el espacio.",
           techNames: ["React", "Tailwind CSS", "JavaScript"],
-          image: "../src/assets/space.png",
+          image: spaceImg,
           url: "https://joeltokatli.github.io/space-travel/",
           githubUrl: "https://github.com/JoelTokatli/space-travel",
           id: 0,
@@ -103,7 +106,7 @@ const translations = {
           title: "IP Address Tracker",
           description: "Aplicación de geolocalización de direcciones IP con mapa interactivo en tiempo real usando LeafletJS.",
           techNames: ["JavaScript", "LeafletJS", "API REST"],
-          image: "../src/assets/Ip-Tracker.png",
+          image: ipImg,
           url: "https://joeltokatli.github.io/vanillaJS-ip-address-tracker/",
           githubUrl: "https://github.com/JoelTokatli/vanillaJS-ip-address-tracker/",
           id: 1,
@@ -112,7 +115,7 @@ const translations = {
           title: "Weather App",
           description: "Pronóstico del clima para cualquier ciudad del mundo con transiciones dinámicas según la temperatura.",
           techNames: ["React", "Tailwind CSS", "Weather API"],
-          image: "../src/assets/weather.png",
+          image: weatherImg,
           url: "https://joeltokatli.github.io/react-weather-app/",
           githubUrl: "https://github.com/JoelTokatli/react-weather-app",
           id: 2,
@@ -223,7 +226,7 @@ const translations = {
           title: "Space Landing Page",
           description: "Dynamic landing page with responsive design and animations. Set up your travel, meet the crew and explore space.",
           techNames: ["React", "Tailwind CSS", "JavaScript"],
-          image: "../src/assets/space.png",
+          image: spaceImg,
           url: "https://joeltokatli.github.io/space-travel/",
           githubUrl: "https://github.com/JoelTokatli/space-travel",
           id: 0,
@@ -232,7 +235,7 @@ const translations = {
           title: "IP Address Tracker",
           description: "IP address geolocation app with real-time interactive map using LeafletJS.",
           techNames: ["JavaScript", "LeafletJS", "REST API"],
-          image: "../src/assets/Ip-Tracker.png",
+          image: ipImg,
           url: "https://joeltokatli.github.io/vanillaJS-ip-address-tracker/",
           githubUrl: "https://github.com/JoelTokatli/vanillaJS-ip-address-tracker/",
           id: 1,
@@ -241,7 +244,7 @@ const translations = {
           title: "Weather App",
           description: "Weather forecast for any city in the world with dynamic transitions based on temperature.",
           techNames: ["React", "Tailwind CSS", "Weather API"],
-          image: "../src/assets/weather.png",
+          image: weatherImg,
           url: "https://joeltokatli.github.io/react-weather-app/",
           githubUrl: "https://github.com/JoelTokatli/react-weather-app",
           id: 2,

@@ -1,5 +1,6 @@
 import React from "react";
 import { useLang } from "../context/LanguageContext";
+import meBikes from "../assets/me-bikes.jpeg";
 
 const About = () => {
   const { t } = useLang();
@@ -20,7 +21,7 @@ const About = () => {
             <div className="relative">
               <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden">
                 <img
-                  src="../src/assets/me-bikes.jpeg"
+                  src={meBikes}
                   alt="Joel Briceño Tokatli"
                   className="w-full h-full object-cover object-[center_20%] scale-105"
                 />
