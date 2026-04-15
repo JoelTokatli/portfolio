@@ -1,6 +1,5 @@
-import React from "react";
 import { useLang } from "../context/LanguageContext";
-import meBikes from "../assets/me-bikes.jpeg";
+import meBikes from "../assets/me-bikes-2.png";
 
 const About = () => {
   const { t } = useLang();

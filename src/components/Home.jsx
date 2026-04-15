@@ -1,6 +1,5 @@
-import React from "react";
 import { useLang } from "../context/LanguageContext";
-import mePhoto from "../assets/me-close-wall.jpeg";
+import mePhoto from "../assets/me.png";
 
 const Home = () => {
   const { t } = useLang();
@@ -18,7 +17,7 @@ const Home = () => {
             <img
               src={mePhoto}
               alt="Joel Briceño Tokatli"
-              className="w-full h-full object-cover object-top scale-110"
+              className="w-full h-full object-cover object-top scale-100"
             />
           </div>
         </div>
